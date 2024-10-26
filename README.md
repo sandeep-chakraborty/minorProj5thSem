@@ -71,20 +71,20 @@ CREATE TABLE IF NOT EXISTS `sale` (
 
 
 ```
-###insert admin credentials
+### insert admin credentials
 ```sql
 INSERT INTO `admin` (`id`, `username`, `password`) VALUES
 (1, 'bcd2024', 'abc111');
 
 ```
 
-###insert manage stock data
+### insert manage stock data
 ```sql
 INSERT INTO `managestock` (`id`, `sid`, `item`, `dfrom`, `doa`, `qty`, `price`, `description`) VALUES
 (7, 'BCD/325', 'HP VICTUS LAPTOP', 'GUWAHATI', '2024-10-22', '8', '72000', 'bh bbh');
 
 ```
-###insert sale data
+### insert sale data
 ```sql
 INSERT INTO `managestock` (`id`, `sid`, `item`, `dfrom`, `doa`, `qty`, `price`, `description`) VALUES
 (7, 'BCD/325', 'HP VICTUS LAPTOP', 'GUWAHATI', '2024-10-22', '8', '72000', 'bh bbh');
