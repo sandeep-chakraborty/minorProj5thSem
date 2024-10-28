@@ -6,11 +6,26 @@ $user="root";
 $password="";
 $database="stocks";
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
 try{
     $con=mysqli_connect($host, $user, $password, $database);
 }catch (Exception $ex){
     echo'Error';
 }
+
+// Handle update operation
+if(isset($_POST['update']))
+{
+    extract($_POST);
+    $sql = "UPDATE `managestock` SET `item`='$item', `dfrom`='$dfrom', `doa`='$doa', `qty`='$qty', `price`='$price', `description`='$description' WHERE `sid`='$sid'";
+    $res = $con->query($sql);
+    if($res){
+        // $result='<div class="alert alert-success">Data Updated Successfully</div>';
+    } else {
+        $result='<div class="alert alert-danger">Error updating data: ' . $con->error . '</div>';
+    }
+}
+
 if(isset($_POST['delete']))
 
   {
@@ -25,6 +40,8 @@ if(isset($_POST['delete']))
       echo "Data not Inserted";;
     }
   }
+
+  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -225,13 +242,13 @@ if(isset($_POST['delete']))
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-        <form action="viewcourse.php" method="POST" enctype="multipart/form-data">
+      <form action="viewstocks.php" method="POST" enctype="multipart/form-data">
       <div class="modal-body">
     
          
              <div class="form-group">
             <label for="in">Item ID</label><br>
-            <input type="text" readonly class="form-control" name="sid" id="sid-<?php echo $row['sid'] ?>" value="<?php echo $row['sid'] ?>">
+            <input type="hidden" name="sid" id="sid-<?php echo $row['sid'] ?>" value="<?php echo $row['sid'] ?>">
             
        </div> <!-- /form-group-->            
           
